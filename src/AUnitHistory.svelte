@@ -41,7 +41,7 @@
         ],
         datasets: [
           {
-            fill: 'end',
+            fill: 'start',
             data: [
               80,
               60,
@@ -147,6 +147,6 @@
 <div class="AUHchart">
   <p class="p-header">AUnit History - Last 30 days</p>
   <div class="chart-content">
-    <canvas id="AUHChart" width="70%" height="20%" />
+    <canvas id="AUHChart" width="100%" height="30%" />
   </div>
 </div>

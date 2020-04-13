@@ -1,3 +1,98 @@
+<script>
+  import { onMount } from 'svelte'
+  import Chart from 'chart.js'
+
+  function createChart() {
+    var ctx = document.getElementById('LBChart')
+    var myChart = new Chart(ctx, {
+      type: 'horizontalBar',
+      data: {
+        labels: [
+          'ZCL_TC_ACT_HDL',
+          'ZCL_TC_HELP',
+          'ZCL_TC_CAMT054_DD',
+          'ZCL_HZV_REFERENCE',
+          'ZCL_A64_MP04_OUT',
+          'ZCL_TC_REGEX',
+          'ZCL_HZV_ESR_REFERENCE',
+          'ZCL_TC_ACTION',
+          'ZCL_TC_ACT_PAR_M',
+          'ZCL_UNIT_TEST',
+          'ZCL_11',
+          'ZCL_12',
+          'ZCL_13',
+          'ZCL_14',
+          'ZCL_15',
+        ],
+        datasets: [
+          {
+            fill: 'end',
+            data: [88, 92, 58, 75, 80, 65, 72, 77, 86, 95, 83, 86, 77, 62, 92],
+            backgroundColor: [
+              'lime',
+              'lime',
+              'red',
+              'orange',
+              'lime',
+              'red',
+              'orange',
+              'orange',
+              'lime',
+              'lime',
+              'lime',
+              'lime',
+              'orange',
+              'red',
+              'lime',
+            ],
+            borderColor: 'orange',
+            lineTension: 0,
+          },
+        ],
+      },
+      options: {
+        legend: {
+          display: false,
+          position: 'top',
+          labels: {
+            boxWidth: 80,
+            fontColor: 'white',
+          },
+          plugins: {
+            filler: {
+              propagate: true,
+            },
+          },
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                max: 100,
+                min: 0,
+                stepSize: 10,
+                fontColor: 'orange',
+              },
+            },
+          ],
+          xAxes: [
+            {
+              ticks: {
+                min: 0,
+                max: 100,
+                stepsize: 10,
+                fontColor: 'orange',
+              },
+            },
+          ],
+        },
+      },
+    })
+  }
+
+  onMount(createChart)
+</script>
+
 <style>
   .LBChart {
     border-radius: 4px;
@@ -25,18 +120,6 @@
 <div class="LBChart">
   <p class="p-header">Last Builds Coverage</p>
   <div class="chart-content">
-    <ul>
-      <li class="li">ZCL_TC_ACT_HDL</li>
-      <li class="li">ZCL_TC_HELP</li>
-      <li class="li">ZCL_TC_CAMT054_DD</li>
-      <li class="li">ZCL_HZV_REFERENCE</li>
-      <li class="li">ZCL_A64_MP04_OUT</li>
-      <li class="li">ZCL_TC_REGEX</li>
-      <li class="li">ZCL_HZV_ESR_REFERENCE</li>
-      <li class="li">ZCL_TC_ACTION</li>
-      <li class="li">ZCL_TC_ACT_PAR_M</li>
-      <li class="li">ZCL_UNIT_TEST</li>
-    </ul>
-    <canvas id="LasstBuilds" width="100%" height="20%" />
+    <canvas id="LBChart" width="70%" height="100%" />
   </div>
 </div>
